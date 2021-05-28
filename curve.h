@@ -1,7 +1,7 @@
 #ifndef SPACE_CURVE__CURVE_H_
 #define SPACE_CURVE__CURVE_H_
 
-#include <_types/_uint64_t.h>
+#include <cstdint>
 
 #include "format.h"
 
@@ -19,8 +19,8 @@ class Hilbert : public SpaceCurve {
  public:
   // REQUIRES: n is positive and power of two
   // TODO: verify n.
-
   Hilbert(uint64_t n) { n_ = n; }
+
   bool Map(Linear t, Coordinate* coord) override;
   bool MapInverse(const Coordinate& coord, Linear* t) override;
 

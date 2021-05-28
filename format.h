@@ -1,7 +1,7 @@
 #ifndef SPACE_CURVE__FORMAT_H_
 #define SPACE_CURVE__FORMAT_H_
 
-#include <_types/_uint64_t.h>
+#include <cstdint>
 
 using Coord = uint64_t;
 using Linear = uint64_t;

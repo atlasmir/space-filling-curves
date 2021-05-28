@@ -1,0 +1,24 @@
+name: CMake Build & Test
+
+on: push
+
+jobs:
+  cmake-build-test:
+    name: CMake Build & Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          submodules: true
+      - name: Get latest CMake and ninja
+        uses: lukka/get-cmake@latest
+      - name: Build
+        run: |
+          mkdir -p build && cd build
+          cmake .. -G Ninja
+          cmake --build .
+          cd ..
+      - name: Test
+        run: cd build && ctest --verbose && cd ..
